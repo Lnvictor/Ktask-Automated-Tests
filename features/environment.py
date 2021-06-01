@@ -53,11 +53,11 @@ def before_all(context) -> None:
     options.add_argument("--disable-popup-blocking")
 
     if context.background == 'True':
-        context.driver = webdriver.Remote(
+        context.driver = webdriver.Chrome(
             options=options, desired_capabilities=desired_cap
         )
     else:
-        context.driver = webdriver.Remote(
+        context.driver = webdriver.Chrome(
             desired_capabilities=desired_cap
         )
 
