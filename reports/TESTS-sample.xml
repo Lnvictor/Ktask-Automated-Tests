@@ -1,0 +1,29 @@
+<testsuite name="sample.Testing Feature configuration" tests="1" errors="1" failures="0" skipped="0" time="111.415634" timestamp="2021-06-01T13:45:53.886110" hostname="Lnvictor"><testcase classname="sample.Testing Feature configuration" name="Application login with google" status="failed" time="111.415634"><error type="WebDriverException" message="Message: chrome not reachable&#10;  (Session info: chrome=91.0.4472.77)&#10;">
+<![CDATA[
+Failing step: And Log in with "vh141299@gmail.com" google account and "gergilin141299" password ... failed in 105.409s
+Location: features/sample.feature:10
+Traceback (most recent call last):
+  File "/home/victor/projects/Ktask-Automated-Tests/.venv/lib/python3.9/site-packages/behave/model.py", line 1329, in run
+    match.run(runner.context)
+  File "/home/victor/projects/Ktask-Automated-Tests/.venv/lib/python3.9/site-packages/behave/matchers.py", line 98, in run
+    self.func(context, *args, **kwargs)
+  File "features/steps/sample.py", line 43, in fill_google_credentials
+    self.driver.find_element_by_name("password").send_keys(password)
+  File "/home/victor/.pyenv/versions/3.9.2/lib/python3.9/bdb.py", line 94, in trace_dispatch
+    return self.dispatch_exception(frame, arg)
+  File "/home/victor/.pyenv/versions/3.9.2/lib/python3.9/bdb.py", line 174, in dispatch_exception
+    if self.quitting: raise BdbQuit
+bdb.BdbQuit
+]]>
+</error><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Application login with google
+    Given I access my application on browser ... passed in 1.767s
+    When I click on Entrar button ... passed in 4.240s
+    And Log in with "vh141299@gmail.com" google account and "gergilin141299" password ... failed in 105.409s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase></testsuite>
