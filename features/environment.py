@@ -46,20 +46,15 @@ def before_all(context) -> None:
     options.add_argument("--start-maximized")
     options.add_argument("--headless")
     options.add_argument("--no-sandbox")
-    options.add_argument('--disable-extensions')
-    options.add_argument('--user-data-dir=~/.config/google-chrome/Default')
+    options.add_argument("--disable-extensions")
     options.add_argument("--incognito")
-    options.add_argument("--disable-plugins-discovery")
-    options.add_argument("--disable-popup-blocking")
 
-    if context.background == 'True':
+    if context.background == "True":
         context.driver = webdriver.Chrome(
             options=options, desired_capabilities=desired_cap
         )
     else:
-        context.driver = webdriver.Chrome(
-            desired_capabilities=desired_cap
-        )
+        context.driver = webdriver.Chrome(desired_capabilities=desired_cap)
 
     context.wait = WebDriverWait(context.driver, 50)
 
@@ -71,7 +66,7 @@ def after_step(context, step) -> None:
         post_mortem(step.exc_traceback)
 
     if step.status == "failed":
-        context.driver.save_screenshot('./reports/error.png')
+        context.driver.save_screenshot("./reports/error.png")
 
 
 def after_scenario(context, scenario) -> None:

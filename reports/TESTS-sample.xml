@@ -1,36 +1,38 @@
-<testsuite name="sample.Testing Feature configuration" tests="1" errors="1" failures="0" skipped="0" time="63.509312" timestamp="2021-06-01T16:15:35.692495" hostname="Lnvictor"><testcase classname="sample.Testing Feature configuration" name="Verifying Homepage" status="failed" time="63.509312"><error type="TimeoutException" message="Message: &#10;">
-<![CDATA[
-Failing step: And crio um todolist com os dados ... failed in 50.570s
-  | Name | Value                 |
-  | nome | exemplo todolist      |
-  | desc | testando com selenium |
-  | data | 16032021              |
-Location: features/sample.feature:12
-Traceback (most recent call last):
-  File "/home/victor/projects/Ktask-Automated-Tests/.venv/lib/python3.9/site-packages/behave/model.py", line 1329, in run
-    match.run(runner.context)
-  File "/home/victor/projects/Ktask-Automated-Tests/.venv/lib/python3.9/site-packages/behave/matchers.py", line 98, in run
-    self.func(context, *args, **kwargs)
-  File "features/steps/sample.py", line 50, in _
-    el = self.wait.until(
-  File "/home/victor/projects/Ktask-Automated-Tests/.venv/lib/python3.9/site-packages/selenium/webdriver/support/wait.py", line 80, in until
-    raise TimeoutException(message, screen, stacktrace)
-selenium.common.exceptions.TimeoutException: Message: 
-
-]]>
-</error><system-out>
+<testsuite name="sample.Testing Feature configuration" tests="2" errors="0" failures="0" skipped="0" time="27.33289" timestamp="2021-06-02T15:16:59.653974" hostname="Lnvictor"><testcase classname="sample.Testing Feature configuration" name="Creating a project" status="passed" time="17.690693"><system-out>
 <![CDATA[
 @scenario.begin
-  Scenario: Verifying Homepage
-    Given I access my application on browser ... passed in 5.188s
-    When I click on Entrar button ... passed in 3.961s
-    And Log in with "xileyaf341@relumyx.com" account and "Ktask@123" password ... passed in 1.116s
-    Then devo estar logado ... passed in 2.674s
-    And crio um todolist com os dados ... failed in 50.570s
+  Scenario: Creating a project
+    Given I access my application on browser ... passed in 1.779s
+    When I click on Entrar button ... passed in 1.309s
+    And Log in with "xileyaf341@relumyx.com" account and "Ktask@123" password ... passed in 1.372s
+    Given I see my homepage ... passed in 3.240s
+    And I create a project with the following data ... passed in 4.656s
       | Name | Value                 |
       | nome | exemplo todolist      |
       | desc | testando com selenium |
       | data | 16032021              |
+    Then there must be a project called "exemplo todolist" ... passed in 3.136s
+    Then I logout ... passed in 2.199s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="sample.Testing Feature configuration" name="Editing a project" status="passed" time="9.642197"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Editing a project
+    Given I access my application on browser ... passed in 0.076s
+    When I click on Entrar button ... passed in 0.640s
+    And Log in with "xileyaf341@relumyx.com" account and "Ktask@123" password ... passed in 0.768s
+    Given I see my homepage ... passed in 2.228s
+    Then I click to edit project called "exemplo todolist" ... passed in 2.279s
+    And I should see the project edition modal ... passed in 0.040s
+    And I edit the project with the following data ... passed in 0.487s
+      | Name | Value                      |
+      | name | exemplo todolist - Updated |
+      | desc | testando com selenium      |
+      | data | 18032021                   |
+    Then there must be a project called "exemplo todolist - Updated" ... passed in 3.123s
 
 @scenario.end
 --------------------------------------------------------------------------------
