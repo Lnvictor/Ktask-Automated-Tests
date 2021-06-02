@@ -1,38 +1,79 @@
-<testsuite name="sample.Testing Feature configuration" tests="2" errors="0" failures="0" skipped="0" time="27.33289" timestamp="2021-06-02T15:16:59.653974" hostname="Lnvictor"><testcase classname="sample.Testing Feature configuration" name="Creating a project" status="passed" time="17.690693"><system-out>
+<testsuite name="sample.Testing Feature configuration" tests="4" errors="0" failures="0" skipped="0" time="58.780252" timestamp="2021-06-02T16:04:21.748309" hostname="Lnvictor"><testcase classname="sample.Testing Feature configuration" name="Creating a project" status="passed" time="22.300153"><system-out>
 <![CDATA[
 @scenario.begin
   Scenario: Creating a project
-    Given I access my application on browser ... passed in 1.779s
-    When I click on Entrar button ... passed in 1.309s
-    And Log in with "xileyaf341@relumyx.com" account and "Ktask@123" password ... passed in 1.372s
-    Given I see my homepage ... passed in 3.240s
-    And I create a project with the following data ... passed in 4.656s
+    Given I access my application on browser ... passed in 3.193s
+    When I click on Entrar button ... passed in 3.675s
+    And Log in with "xileyaf341@relumyx.com" account and "Ktask@123" password ... passed in 1.316s
+    Given I see my homepage ... passed in 2.735s
+    And I create a project with the following data ... passed in 4.789s
       | Name | Value                 |
       | nome | exemplo todolist      |
       | desc | testando com selenium |
       | data | 16032021              |
-    Then there must be a project called "exemplo todolist" ... passed in 3.136s
-    Then I logout ... passed in 2.199s
+    Then there must be a project called "exemplo todolist" ... passed in 3.154s
+    Then I logout ... passed in 3.438s
 
 @scenario.end
 --------------------------------------------------------------------------------
 ]]>
-</system-out></testcase><testcase classname="sample.Testing Feature configuration" name="Editing a project" status="passed" time="9.642197"><system-out>
+</system-out></testcase><testcase classname="sample.Testing Feature configuration" name="Creating a project with error" status="passed" time="11.832739"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Creating a project with error
+    Given I access my application on browser ... passed in 0.623s
+    When I click on Entrar button ... passed in 0.534s
+    And Log in with "xileyaf341@relumyx.com" account and "Ktask@123" password ... passed in 0.745s
+    Given I see my homepage ... passed in 1.872s
+    And I create a project with the following data ... passed in 4.579s
+      | Name | Value |
+      | nome |       |
+      | desc |       |
+      | data |       |
+    Then I see a error message with "Preencha o campo." ... passed in 0.067s
+    Then I logout ... passed in 3.412s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="sample.Testing Feature configuration" name="Editing a project" status="passed" time="14.190607"><system-out>
 <![CDATA[
 @scenario.begin
   Scenario: Editing a project
-    Given I access my application on browser ... passed in 0.076s
-    When I click on Entrar button ... passed in 0.640s
-    And Log in with "xileyaf341@relumyx.com" account and "Ktask@123" password ... passed in 0.768s
-    Given I see my homepage ... passed in 2.228s
-    Then I click to edit project called "exemplo todolist" ... passed in 2.279s
-    And I should see the project edition modal ... passed in 0.040s
-    And I edit the project with the following data ... passed in 0.487s
+    Given I access my application on browser ... passed in 0.637s
+    When I click on Entrar button ... passed in 0.602s
+    And Log in with "xileyaf341@relumyx.com" account and "Ktask@123" password ... passed in 0.829s
+    Given I see my homepage ... passed in 2.431s
+    Then I click to edit project called "exemplo todolist" ... passed in 2.310s
+    And I should see the project edition modal ... passed in 0.042s
+    And I edit the project with the following data ... passed in 0.765s
       | Name | Value                      |
       | name | exemplo todolist - Updated |
       | desc | testando com selenium      |
       | data | 18032021                   |
-    Then there must be a project called "exemplo todolist - Updated" ... passed in 3.123s
+    Then there must be a project called "exemplo todolist - Updated" ... passed in 3.160s
+    Then I logout ... passed in 3.415s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="sample.Testing Feature configuration" name="Editing a project with error" status="passed" time="10.456753"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Editing a project with error
+    Given I access my application on browser ... passed in 0.621s
+    When I click on Entrar button ... passed in 0.601s
+    And Log in with "xileyaf341@relumyx.com" account and "Ktask@123" password ... passed in 0.816s
+    Given I see my homepage ... passed in 2.200s
+    Then I click to edit project called "exemplo todolist - Updated" ... passed in 2.281s
+    And I should see the project edition modal ... passed in 0.044s
+    And I edit the project with the following data ... passed in 0.444s
+      | Name | Value |
+      | name |       |
+      | desc |       |
+      | data |       |
+    Then I see a error message with "Você não alterou nenhum campo, altere pelo menos 1 campo!" ... passed in 0.040s
+    Then I logout ... passed in 3.411s
 
 @scenario.end
 --------------------------------------------------------------------------------

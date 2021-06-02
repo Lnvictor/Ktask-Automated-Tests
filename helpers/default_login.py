@@ -3,7 +3,7 @@ from selenium.webdriver import Chrome
 from selenium.webdriver.support.wait import WebDriverWait
 
 
-def make_login(driver: Chrome, wait: WebDriverWait, email: str, password:str):
+def make_login(driver: Chrome, wait: WebDriverWait, email: str, password: str):
     try:
         wait_2 = WebDriverWait(driver, 2)
         btn = wait_2.until(

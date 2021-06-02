@@ -1,9 +1,8 @@
 """Hooks to the project."""
+from ipdb import post_mortem
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options as opt_chrome
 from selenium.webdriver.firefox.options import Options as opt_firefox
-
-from ipdb import post_mortem
 from selenium.webdriver.support.wait import WebDriverWait
 
 
