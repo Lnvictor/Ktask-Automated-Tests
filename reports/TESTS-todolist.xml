@@ -1,0 +1,141 @@
+<testsuite name="todolist.Todolists management workflow" tests="7" errors="1" failures="0" skipped="0" time="58.016689" timestamp="2021-06-07T13:37:38.332043" hostname="Lnvictor"><testcase classname="todolist.Todolists management workflow" name="Creating a project" status="passed" time="11.675239"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Creating a project
+    Given I access my application on browser ... passed in 0.350s
+    When I click on Entrar button ... passed in 0.287s
+    And Log in with "xileyaf341@relumyx.com" account and "Ktask@123" password ... passed in 0.479s
+    Given I see my homepage ... passed in 2.191s
+    When I create a project with the following data ... passed in 4.525s
+      | Name | Value                 |
+      | nome | exemplo todolist      |
+      | desc | testando com selenium |
+      | data | 16072021              |
+    Then there must be a project called "exemplo todolist" ... passed in 3.105s
+    Then I logout ... passed in 0.739s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="todolist.Todolists management workflow" name="Creating a project with error" status="passed" time="8.51453"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Creating a project with error
+    Given I access my application on browser ... passed in 0.347s
+    When I click on Entrar button ... passed in 0.331s
+    And Log in with "xileyaf341@relumyx.com" account and "Ktask@123" password ... passed in 0.444s
+    Given I see my homepage ... passed in 2.172s
+    When I create a project with the following data ... passed in 4.404s
+      | Name | Value |
+      | nome |       |
+      | desc |       |
+      | data |       |
+    Then I see a error message with "Preencha o campo." ... passed in 0.062s
+    Then I logout ... passed in 0.753s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="todolist.Todolists management workflow" name="Creating a project with past date" status="passed" time="8.452009"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Creating a project with past date
+    Given I access my application on browser ... passed in 0.348s
+    When I click on Entrar button ... passed in 0.494s
+    And Log in with "xileyaf341@relumyx.com" account and "Ktask@123" password ... passed in 0.422s
+    Given I see my homepage ... passed in 2.198s
+    When I create a project with the following data ... passed in 4.443s
+      | Name | Value    |
+      | nome | foll     |
+      | desc | fool     |
+      | data | 04052021 |
+    Then I see a error message with "Preencha todos os campos e coloque uma data válida!" ... passed in 0.043s
+    Then I logout ... passed in 0.504s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="todolist.Todolists management workflow" name="Editing a project" status="passed" time="9.413902"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Editing a project
+    Given I access my application on browser ... passed in 0.346s
+    When I click on Entrar button ... passed in 0.550s
+    And Log in with "xileyaf341@relumyx.com" account and "Ktask@123" password ... passed in 0.567s
+    Given I see my homepage ... passed in 1.628s
+    Then I click to edit project called "exemplo todolist" ... passed in 2.214s
+    And I should see the project edition modal ... passed in 0.024s
+    And I edit the project with the following data ... passed in 0.460s
+      | Name | Value                      |
+      | name | exemplo todolist - Updated |
+      | desc | testando com selenium      |
+      | data | 18032021                   |
+    Then there must be a project called "exemplo todolist - Updated" ... passed in 3.140s
+    Then I logout ... passed in 0.484s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="todolist.Todolists management workflow" name="Editing a project with error" status="failed" time="6.194541"><error type="IndexError" message="list index out of range">
+<![CDATA[
+Failing step: Then I see a error message with "Você não alterou nenhum campo, altere pelo menos 1 campo!" ... failed in 0.012s
+Location: features/todolist.feature:59
+Traceback (most recent call last):
+  File "/home/victor/projects/Ktask-Automated-Tests/.venv/lib/python3.9/site-packages/behave/model.py", line 1329, in run
+    match.run(runner.context)
+  File "/home/victor/projects/Ktask-Automated-Tests/.venv/lib/python3.9/site-packages/behave/matchers.py", line 98, in run
+    self.func(context, *args, **kwargs)
+  File "features/steps/steps.py", line 60, in check_error_message
+    error_msg = self.driver.find_elements_by_class_name("Error_error__2Um6o")[-1]
+IndexError: list index out of range
+]]>
+</error><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Editing a project with error
+    Given I access my application on browser ... passed in 0.354s
+    When I click on Entrar button ... passed in 0.320s
+    And Log in with "xileyaf341@relumyx.com" account and "Ktask@123" password ... passed in 0.707s
+    Given I see my homepage ... passed in 2.268s
+    Then I click to edit project called "exemplo todolist - Updated" ... passed in 2.244s
+    And I should see the project edition modal ... passed in 0.024s
+    And I edit the project with the following data ... passed in 0.266s
+      | Name | Value |
+      | name |       |
+      | desc |       |
+      | data |       |
+    Then I see a error message with "Você não alterou nenhum campo, altere pelo menos 1 campo!" ... failed in 0.012s
+    Then I logout ... skipped in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="todolist.Todolists management workflow" name="Managing todolist access" status="passed" time="6.692967"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Managing todolist access
+    Given I access my application on browser ... passed in 0.158s
+    When I click on Entrar button ... passed in 0.391s
+    And Log in with "xileyaf341@relumyx.com" account and "Ktask@123" password ... passed in 0.512s
+    Given I see my homepage ... passed in 2.156s
+    Then I add user "vh141299@gmail.com" to the project ... passed in 2.980s
+    Then I logout ... passed in 0.496s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="todolist.Todolists management workflow" name="Removing user from project" status="passed" time="7.073501"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Removing user from project
+    Given I access my application on browser ... passed in 0.352s
+    When I click on Entrar button ... passed in 0.277s
+    And Log in with "xileyaf341@relumyx.com" account and "Ktask@123" password ... passed in 0.473s
+    Given I see my homepage ... passed in 2.185s
+    Then I remove user "vh141299@gmail.com" from project" ... passed in 3.028s
+    Then I logout ... passed in 0.758s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase></testsuite>

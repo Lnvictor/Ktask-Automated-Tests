@@ -66,6 +66,7 @@ def after_step(context, step) -> None:
 
     if step.status == "failed":
         context.driver.save_screenshot("./reports/error.png")
+        context.driver.get("http://localhost:3000")
 
 
 def after_scenario(context, scenario) -> None:
