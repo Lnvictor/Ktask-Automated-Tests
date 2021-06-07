@@ -1,41 +1,41 @@
-<testsuite name="todo.Todo management workflow" tests="2" errors="0" failures="0" skipped="1" time="26.664573" timestamp="2021-06-07T15:44:23.572501" hostname="Lnvictor"><testcase classname="todo.Todo management workflow" name="Create todo" status="skipped" time="0"><skipped /><system-out>
+<testsuite name="todo.Todo management workflow" tests="2" errors="0" failures="0" skipped="2" time="0.0" timestamp="2021-06-07T16:27:23.359393" hostname="KMS-NB199"><testcase classname="todo.Todo management workflow" name="Create todo" status="untested" time="0"><skipped /><system-out>
 <![CDATA[
 @scenario.begin
   Scenario: Create todo
-    Given I access my application on browser ... skipped in 0.000s
-    When I click on Entrar button ... skipped in 0.000s
-    And Log in with "xileyaf341@relumyx.com" account and "Ktask@123" password ... skipped in 0.000s
-    Given I see my homepage ... skipped in 0.000s
-    And I click on viewTodos ... skipped in 0.000s
-    Then Click on create todo button ... skipped in 0.000s
-    And I create a todo with the following data ... skipped in 0.000s
+    Given I access my application on browser ... untested in 0.000s
+    When I click on Entrar button ... untested in 0.000s
+    And Log in with "xileyaf341@relumyx.com" account and "Ktask@123" password ... untested in 0.000s
+    Given I see my homepage ... untested in 0.000s
+    And I click on viewTodos ... untested in 0.000s
+    Then Click on create todo button ... untested in 0.000s
+    And I create a todo with the following data ... untested in 0.000s
       | Name | Value                 |
       | nome | exemplo todo          |
       | desc | testando com selenium |
       | data | 16072021              |
-    Then the "exemplo todo" todo should be exists on " A fazer" session ... skipped in 0.000s
-    Then I logout ... skipped in 0.000s
+    Then the "exemplo todo" todo should be exists on " A fazer" session ... untested in 0.000s
+    Then I logout ... untested in 0.000s
 
 @scenario.end
 --------------------------------------------------------------------------------
 ]]>
-</system-out></testcase><testcase classname="todo.Todo management workflow" name="Create Todo with error" status="passed" time="26.664573"><system-out>
+</system-out></testcase><testcase classname="todo.Todo management workflow" name="Create Todo with error" status="untested" time="0"><skipped /><system-out>
 <![CDATA[
 @scenario.begin
   Scenario: Create Todo with error
-    Given I access my application on browser ... passed in 2.650s
-    When I click on Entrar button ... passed in 1.941s
-    And Log in with "xileyaf341@relumyx.com" account and "Ktask@123" password ... passed in 1.491s
-    Given I see my homepage ... passed in 2.700s
-    And I click on viewTodos ... passed in 2.232s
-    Then Click on create todo button ... passed in 0.105s
-    And I create a todo with the following data ... passed in 4.383s
+    Given I access my application on browser ... untested in 0.000s
+    When I click on Entrar button ... untested in 0.000s
+    And Log in with "xileyaf341@relumyx.com" account and "Ktask@123" password ... untested in 0.000s
+    Given I see my homepage ... untested in 0.000s
+    And I click on viewTodos ... untested in 0.000s
+    Then Click on create todo button ... untested in 0.000s
+    And I create a todo with the following data ... untested in 0.000s
       | Name | Value |
       | nome |       |
       | desc |       |
       | data |       |
-    Then I see a error message with "Preencha o campo." on "createTodo" modal ... passed in 9.597s
-    Then I logout ... passed in 1.564s
+    Then I see a error message with "Preencha o campo." on "createTodo" modal ... untested in 0.000s
+    Then I logout ... untested in 0.000s
 
 @scenario.end
 --------------------------------------------------------------------------------

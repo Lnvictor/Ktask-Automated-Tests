@@ -54,7 +54,7 @@ def _(self):
 def check_project_name(self, project_name):
     sleep(1)
     my_account = MyAccount(self.driver, self.wait)
-    assert project_name.upper() in [t.text for t in my_account.todolists]
+    assert project_name.upper() == my_account.todolist.text
 
 
 @then('I see a error message with "{message}" on "{mode}" modal')
@@ -86,7 +86,7 @@ def check_error_message(self, message: str, mode: str):
 @then('I click to edit project called "{project_name}"')
 def click_to_edit_project(self, project_name):
     my_account = MyAccount(self.driver, self.wait)
-    proj = my_account.todolists[0]
+    proj = my_account.todolist
     buttons = proj.find_elements_by_tag_name("button")
     list(
         filter(lambda b: b.get_attribute("data-tip") == "Visualizar e editar", buttons)

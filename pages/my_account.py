@@ -6,14 +6,14 @@ class MyAccount:
         self.driver = driver
         self.wait = wait
         self.create_todolist = self.wait.until(
-            lambda driver: self.driver.find_element_by_class_name(
-                "Button_button__1OHuF"
+            lambda driver: self.driver.find_element_by_xpath(
+                '//*[@id="root"]/div/main/section/div/section/div/div[1]/button'
             )
         )
         self.logout_button = self.driver.find_element_by_id("logout")
         sleep(2)
-        self.todolists = self.driver.find_elements_by_class_name(
-            "MyAccount_todoList__1_oPs"
+        self.todolist = self.driver.find_element_by_xpath(
+            '//*[@id="root"]/div/main/section/div/section/div/div[2]/div/div/ul/li'
         )
 
     def create_project(self, name: str, desc: str, data: str):
@@ -26,11 +26,11 @@ class MyAccount:
         desc_field.send_keys(desc)
         deadline_field = self.driver.find_element_by_id("deadline")
         deadline_field.send_keys(data)
-        self.driver.find_element_by_class_name("Button_button__1OHuF").click()
+        self.driver.find_element_by_xpath('//*[@id="modalCreate"]/div/div/section/form/button').click()
         sleep(2)
-        self.todolists = self.driver.find_elements_by_class_name(
-            "MyAccount_todoList__1_oPs"
+        self.todolist = self.driver.find_element_by_xpath(
+            '//*[@id="root"]/div/main/section/div/section/div/div[2]/div/div/ul/li'
         )
-
+  
     def exclude_project(self, desc):
         pass
