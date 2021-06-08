@@ -17,7 +17,7 @@ Feature: Todo management workflow
         |nome				|exemplo todo   			|
 		|desc				|testando com selenium		|
 		|data				|16072021					|
-        Then the "exemplo todo" todo should be exists on " A fazer" session
+        Then the "exemplo todo" todo should be exists on "A fazer" session
         Then I logout
 
     Scenario: Create Todo with error
@@ -30,3 +30,29 @@ Feature: Todo management workflow
         Then I see a error message with "Preencha o campo." on "createTodo" modal
         Then I logout
 
+	Scenario: Edit todo
+		Then Click to edit todo
+        And I edit the "todo" with the following data	
+		|Name 				|Value 						| 
+		|name				|todo-Updated	    		|
+		|desc				|updated					|
+		|data				|15082021					|
+        Then the "todo-Updated" todo should be exists on " A fazer" session
+        Then I logout
+
+    Scenario: Edit todo with past date
+        Then CLick to edit todo
+        And I edit the "todo" with the following data
+        |Name 				|Value 						| 
+		|name				|todo-Updated	    		|
+		|desc				|updated					|
+		|data				|15082020					|
+        Then I see a error message with "Coloque uma data válida" on "editTodo" modal
+        Then I logout
+
+    Scenario: Changing status
+        Then I change status to "Em andamento"
+        Then the "todo-Updated" todo should be exists on "Em andamento" session
+        Then I change status to "Concluido"
+        Then the "todo-Updated" todo should be exists on "Concluido" session
+        Then I logout

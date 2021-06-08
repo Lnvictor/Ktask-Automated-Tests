@@ -36,6 +36,7 @@ def create_todo(self):
     deadline_field = self.driver.find_element_by_id("deadline")
     deadline_field.send_keys(table["data"])
 
+    sleep(1)
     self.driver.find_element_by_xpath(
         '//*[@id="ModalView"]/div/div/section/form/button'
     ).click()
@@ -44,19 +45,50 @@ def create_todo(self):
 
 @then('the "{todo_name}" todo should be exists on "{session}" session')
 def verify_todo_creation(self, todo_name: str, session: str):
+    sleep(4)
     session_element = self.wait.until(
         lambda driver: self.driver.find_element_by_xpath(
             '//*[@id="root"]/div/main/section/div/section/div/div[2]/div[1]'
         )
     )
-    # TODO: Concluir
-    if session == "Em Andamento":
-        pass
-    elif session == "Concluído":
-        pass
+
+    if session == "Em andamento":
+        session_element = self.wait.until(
+            lambda driver: self.driver.find_element_by_xpath(
+                '//*[@id="root"]/div/main/section/div/section/div/div[2]/div[2]'
+            )
+        )
+    elif session == "Concluido":
+        session_element = self.wait.until(
+            lambda driver: self.driver.find_element_by_xpath(
+                '//*[@id="root"]/div/main/section/div/section/div/div[2]/div[3]'
+            )
+        )
 
     titles = [title.text for title in session_element.find_elements_by_tag_name("h3")]
     assert todo_name.upper() in titles
+
+
+@then("Click to edit todo")
+def click_on_edit_todo(self):
+    self.wait.until(
+        lambda driver: driver.find_element_by_xpath(
+            '//*[@id="root"]/div/main/section/div/section/div/div[2]/div[1]/ul/li/div[2]/button[1]'
+        )
+    ).click()
+
+
+@then('I change status to "{status}"')
+def change_status(self, status: str):
+    sleep(4)
+    if status == "Em andamento":
+        self.driver.find_element_by_xpath(
+            '//*[@id="root"]/div/main/section/div/section/div/div[2]/div[1]/ul/li[1]/div[1]/button'
+        ).click()
+    elif status == "Concluido":
+        self.driver.find_element_by_xpath(
+            '//*[@id="root"]/div/main/section/div/section/div/div[2]/div[2]/ul/li/div[1]/button[2]'
+        ).click()
 
 
 @then("foo")

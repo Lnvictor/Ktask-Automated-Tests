@@ -15,7 +15,6 @@ def make_login(driver: Chrome, wait: WebDriverWait, email: str, password: str):
     if btn.text == "Sign In as xileyaf341@relumyx.com":
         btn.click()
     else:
-        # ipdb.sset_trace()
         email_field = wait.until(
             lambda driver: driver.find_element_by_id("signInFormUsername")
         )

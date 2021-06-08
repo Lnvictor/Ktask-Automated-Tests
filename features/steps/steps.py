@@ -1,5 +1,6 @@
 from time import sleep
 
+import ipdb
 from behave import given, step, then, when
 from selenium.common.exceptions import NoSuchElementException, TimeoutException
 from selenium.webdriver.support.ui import WebDriverWait
@@ -60,7 +61,12 @@ def check_project_name(self, project_name):
 @then('I see a error message with "{message}" on "{mode}" modal')
 def check_error_message(self, message: str, mode: str):
     sleep(2)
-    types = {"create": "modalCreate", "createTodo": "ModalView", "edit": "ModalAdd"}
+    types = {
+        "create": "modalCreate",
+        "createTodo": "ModalView",
+        "edit": "ModalAdd",
+        "editTodo": "ModalEdit",
+    }
 
     try:
         error_msg = self.driver.find_element_by_xpath(
@@ -99,17 +105,19 @@ def check_edition_modal(self):
     assert title.text == "VISUALIZE SEU PROJETO"
 
 
-@step("I edit the project with the following data")
-def edit_project(self):
+@step('I edit the "{type}" with the following data')
+def edit_project(self, type: str):
+    types = {"project": "ModalAdd", "todo": "ModalEdit"}
+
     table = {row["Name"]: row["Value"] for row in self.table}
     self.driver.find_element_by_xpath(
-        '//*[@id="ModalAdd"]/div/div/section/div/button'
+        f'//*[@id="{types[type]}"]/div/div/section/div/button'
     ).click()
     name_field = self.driver.find_element_by_id("name")
     desc_field = self.driver.find_element_by_id("description")
     deadline_field = self.driver.find_element_by_id("deadline")
     save_button = self.driver.find_element_by_xpath(
-        '//*[@id="ModalAdd"]/div/div/section/form/div[4]/button[1]'
+        f'//*[@id="{types[type]}"]/div/div/section/form/div[4]/button[1]'
     )
 
     name_field.send_keys(table["name"])
