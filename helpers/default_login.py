@@ -2,20 +2,20 @@ from selenium.common.exceptions import TimeoutException
 from selenium.webdriver import Chrome
 from selenium.webdriver.support.wait import WebDriverWait
 
+from time import sleep
+import ipdb
 
 def make_login(driver: Chrome, wait: WebDriverWait, email: str, password: str):
-    try:
-        wait_2 = WebDriverWait(driver, 2)
-        btn = wait_2.until(
-            lambda driver: driver.find_element_by_class_name(
-                "btn.btn-primary.submitButton-customizable"
-            )
+    wait_2 = WebDriverWait(driver, 15)
+    btn = wait_2.until(
+        lambda driver: driver.find_element_by_class_name(
+            "btn.btn-primary.submitButton-customizable"
         )
-        if btn.text == "Sign In as xileyaf341@relumyx.com":
-            btn.click()
-        else:
-            raise TimeoutException()
-    except TimeoutException:
+    )
+    if btn.text == "Sign In as xileyaf341@relumyx.com":
+        btn.click()
+    else:
+        # ipdb.sset_trace()
         email_field = wait.until(
             lambda driver: driver.find_element_by_id("signInFormUsername")
         )

@@ -1,41 +1,67 @@
-<testsuite name="todo.Todo management workflow" tests="2" errors="0" failures="0" skipped="2" time="0.0" timestamp="2021-06-07T16:27:23.359393" hostname="KMS-NB199"><testcase classname="todo.Todo management workflow" name="Create todo" status="untested" time="0"><skipped /><system-out>
+<testsuite name="todo.Todo management workflow" tests="2" errors="2" failures="0" skipped="0" time="9.581264" timestamp="2021-06-07T16:51:54.828784" hostname="KMS-NB206"><testcase classname="todo.Todo management workflow" name="Create todo" status="failed" time="4.76877"><error type="AttributeError" message="'MyAccount' object has no attribute 'todolists'">
+<![CDATA[
+Failing step: And I click on viewTodos ... failed in 2.055s
+Location: features/todo.feature:11
+Traceback (most recent call last):
+  File "c:\users\jonathan.oliveira\documents\trilha todotest\ktask-automated-tests\.venv\lib\site-packages\behave\model.py", line 1329, in run
+    match.run(runner.context)
+  File "c:\users\jonathan.oliveira\documents\trilha todotest\ktask-automated-tests\.venv\lib\site-packages\behave\matchers.py", line 98, in run
+    self.func(context, *args, **kwargs)
+  File "features\steps\todo.py", line 12, in click_on_view_todos
+    proj = my_account.todolists[0]
+AttributeError: 'MyAccount' object has no attribute 'todolists'
+]]>
+</error><system-out>
 <![CDATA[
 @scenario.begin
   Scenario: Create todo
-    Given I access my application on browser ... untested in 0.000s
-    When I click on Entrar button ... untested in 0.000s
-    And Log in with "xileyaf341@relumyx.com" account and "Ktask@123" password ... untested in 0.000s
-    Given I see my homepage ... untested in 0.000s
-    And I click on viewTodos ... untested in 0.000s
-    Then Click on create todo button ... untested in 0.000s
-    And I create a todo with the following data ... untested in 0.000s
+    Given I access my application on browser ... passed in 0.467s
+    When I click on Entrar button ... passed in 0.233s
+    And Log in with "xileyaf341@relumyx.com" account and "Ktask@123" password ... passed in 0.406s
+    Given I see my homepage ... passed in 1.608s
+    And I click on viewTodos ... failed in 2.055s
+    Then Click on create todo button ... skipped in 0.000s
+    And I create a todo with the following data ... skipped in 0.000s
       | Name | Value                 |
       | nome | exemplo todo          |
       | desc | testando com selenium |
       | data | 16072021              |
-    Then the "exemplo todo" todo should be exists on " A fazer" session ... untested in 0.000s
-    Then I logout ... untested in 0.000s
+    Then the "exemplo todo" todo should be exists on " A fazer" session ... skipped in 0.000s
+    Then I logout ... skipped in 0.000s
 
 @scenario.end
 --------------------------------------------------------------------------------
 ]]>
-</system-out></testcase><testcase classname="todo.Todo management workflow" name="Create Todo with error" status="untested" time="0"><skipped /><system-out>
+</system-out></testcase><testcase classname="todo.Todo management workflow" name="Create Todo with error" status="failed" time="4.812494"><error type="AttributeError" message="'MyAccount' object has no attribute 'todolists'">
+<![CDATA[
+Failing step: And I click on viewTodos ... failed in 2.046s
+Location: features/todo.feature:11
+Traceback (most recent call last):
+  File "c:\users\jonathan.oliveira\documents\trilha todotest\ktask-automated-tests\.venv\lib\site-packages\behave\model.py", line 1329, in run
+    match.run(runner.context)
+  File "c:\users\jonathan.oliveira\documents\trilha todotest\ktask-automated-tests\.venv\lib\site-packages\behave\matchers.py", line 98, in run
+    self.func(context, *args, **kwargs)
+  File "features\steps\todo.py", line 12, in click_on_view_todos
+    proj = my_account.todolists[0]
+AttributeError: 'MyAccount' object has no attribute 'todolists'
+]]>
+</error><system-out>
 <![CDATA[
 @scenario.begin
   Scenario: Create Todo with error
-    Given I access my application on browser ... untested in 0.000s
-    When I click on Entrar button ... untested in 0.000s
-    And Log in with "xileyaf341@relumyx.com" account and "Ktask@123" password ... untested in 0.000s
-    Given I see my homepage ... untested in 0.000s
-    And I click on viewTodos ... untested in 0.000s
-    Then Click on create todo button ... untested in 0.000s
-    And I create a todo with the following data ... untested in 0.000s
+    Given I access my application on browser ... passed in 0.302s
+    When I click on Entrar button ... passed in 0.496s
+    And Log in with "xileyaf341@relumyx.com" account and "Ktask@123" password ... passed in 0.360s
+    Given I see my homepage ... passed in 1.609s
+    And I click on viewTodos ... failed in 2.046s
+    Then Click on create todo button ... skipped in 0.000s
+    And I create a todo with the following data ... skipped in 0.000s
       | Name | Value |
       | nome |       |
       | desc |       |
       | data |       |
-    Then I see a error message with "Preencha o campo." on "createTodo" modal ... untested in 0.000s
-    Then I logout ... untested in 0.000s
+    Then I see a error message with "Preencha o campo." on "createTodo" modal ... skipped in 0.000s
+    Then I logout ... skipped in 0.000s
 
 @scenario.end
 --------------------------------------------------------------------------------
