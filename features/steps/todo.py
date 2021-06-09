@@ -9,7 +9,7 @@ from pages.my_account import MyAccount
 @step("I click on viewTodos")
 def click_on_view_todos(self):
     my_account = MyAccount(self.driver, self.wait)
-    proj = my_account.todolists[0]
+    proj = my_account.todolist
     buttons = proj.find_elements_by_tag_name("button")
     list(filter(lambda b: b.get_attribute("data-tip") == "Acessar toDos", buttons))[
         0

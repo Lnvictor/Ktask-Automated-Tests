@@ -43,8 +43,8 @@ Feature: Todolists management workflow
 		And I edit the "project" with the following data
 		|Name 				|Value 						| 
 		|name				|exemplo todolist - Updated	|
-		|desc				|testando com selenium 		|
-		|data				|18032021					|
+		|desc				|testando com selenium 2	|
+		|data				|18032023					|
 		Then there must be a project called "exemplo todolist - Updated"
 		Then I logout
 

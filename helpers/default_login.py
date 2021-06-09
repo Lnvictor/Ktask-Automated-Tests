@@ -1,9 +1,10 @@
+from time import sleep
+
+import ipdb
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver import Chrome
 from selenium.webdriver.support.wait import WebDriverWait
 
-from time import sleep
-import ipdb
 
 def make_login(driver: Chrome, wait: WebDriverWait, email: str, password: str):
     wait_2 = WebDriverWait(driver, 15)
